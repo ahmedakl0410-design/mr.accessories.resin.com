@@ -1,0 +1,1088 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>mr.accessories | Handcrafted Resin & Epoxy Store</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- FontAwesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Google Fonts: Space Grotesk & Inter -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
+    
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        brand: {
+                            dark: '#080C14',
+                            card: '#0F172A',
+                            border: '#1E293B',
+                            electric: '#00A8FF',
+                            ocean: '#0066FF',
+                            gold: '#D4AF37',
+                            goldLight: '#F3E5AB',
+                            silver: '#CBD5E1',
+                            silverLight: '#F1F5F9'
+                        }
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                        display: ['Space Grotesk', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+
+    <style>
+        /* Custom Glowing & Metallic Styling */
+        .glass-panel {
+            background: rgba(15, 23, 42, 0.75);
+            backdrop-filter: blur(16px);
+            -webkit-backdrop-filter: blur(16px);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+        }
+
+        .electric-glow {
+            box-shadow: 0 0 25px rgba(0, 168, 255, 0.25);
+        }
+
+        .electric-glow-hover:hover {
+            box-shadow: 0 0 30px rgba(0, 168, 255, 0.4);
+        }
+
+        .text-gradient-electric {
+            background: linear-gradient(135deg, #FFFFFF 0%, #00A8FF 50%, #0066FF 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .text-gradient-gold {
+            background: linear-gradient(135deg, #F3E5AB 0%, #D4AF37 50%, #AA7C11 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .resin-gloss {
+            position: relative;
+            overflow: hidden;
+        }
+
+        .resin-gloss::after {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: linear-gradient(
+                60deg,
+                transparent 30%,
+                rgba(255, 255, 255, 0.15) 50%,
+                transparent 70%
+            );
+            transform: rotate(30deg) translateY(-100%);
+            transition: transform 0.8s ease-in-out;
+        }
+
+        .resin-gloss:hover::after {
+            transform: rotate(30deg) translateY(100%);
+        }
+
+        /* Custom Scrollbar */
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #080C14;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #1E293B;
+            border-radius: 4px;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: #00A8FF;
+        }
+
+        /* Interactive Canvas Visualizer Effects */
+        .preview-box {
+            transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .effect-electric {
+            background: radial-gradient(circle at 70% 30%, rgba(0, 168, 255, 0.8), transparent 60%),
+                        radial-gradient(circle at 20% 80%, rgba(212, 175, 55, 0.5), transparent 50%),
+                        linear-gradient(135deg, #030712 0%, #0284c7 50%, #0f172a 100%);
+        }
+
+        .effect-gold-luxury {
+            background: radial-gradient(circle at 50% 50%, rgba(243, 229, 171, 0.8) 0%, rgba(214, 175, 55, 0.3) 60%),
+                        linear-gradient(135deg, #1e1b4b 0%, #1e293b 50%, #d4af37 100%);
+        }
+
+        .effect-galaxy {
+            background: radial-gradient(circle at 70% 20%, rgba(147, 51, 234, 0.6), transparent 50%),
+                        radial-gradient(circle at 20% 80%, rgba(0, 168, 255, 0.6), transparent 50%),
+                        linear-gradient(135deg, #090d16 0%, #312e81 50%, #020617 100%);
+        }
+
+        .effect-botanical {
+            background: radial-gradient(circle at 40% 40%, rgba(16, 185, 129, 0.4), transparent 50%),
+                        linear-gradient(135deg, #022c22 0%, #0f172a 50%, #059669 100%);
+        }
+
+        .effect-crystal {
+            background: linear-gradient(135deg, rgba(255,255,255,0.2) 0%, rgba(255,255,255,0.05) 100%);
+            border: 2px solid rgba(255, 255, 255, 0.2);
+        }
+    </style>
+</head>
+<body class="bg-brand-dark font-sans text-slate-200 antialiased selection:bg-brand-electric selection:text-black min-h-screen flex flex-col">
+
+    <!-- ANNOUNCEMENT BANNER -->
+    <div class="bg-gradient-to-r from-brand-dark via-slate-900 to-brand-dark border-b border-slate-800 text-xs py-2 px-4 text-center tracking-wide flex justify-center items-center gap-2">
+        <span class="inline-block w-2 h-2 rounded-full bg-brand-electric animate-ping"></span>
+        <span>✨ Custom Epoxy Commission Slots Open! Use Code <strong class="text-brand-electric font-semibold">EPOXY10</strong> for 10% Off</span>
+    </div>
+
+    <!-- MAIN NAVBAR -->
+    <header class="sticky top-0 z-40 bg-brand-dark/90 backdrop-blur-md border-b border-slate-800/80 transition-all duration-300">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex items-center justify-between h-20">
+                
+                <!-- Logo Integration -->
+                <a href="#home" class="flex items-center gap-3 group">
+                    <div class="w-10 h-10 rounded-xl bg-gradient-to-br from-slate-900 via-brand-dark to-slate-900 border border-brand-electric/40 flex items-center justify-center font-display font-bold text-white tracking-widest shadow-lg shadow-brand-electric/10 group-hover:border-brand-electric transition-colors">
+                        M<span class="text-brand-electric">R</span>
+                    </div>
+                    <div class="flex flex-col">
+                        <span class="font-display text-xl font-bold tracking-tight text-white flex items-center">
+                            MR.<span class="text-brand-electric ml-1">ACCESSORIES</span>
+                        </span>
+                        <span class="text-[8px] tracking-widest text-slate-400 uppercase font-semibold">Resin Epoxy Store</span>
+                    </div>
+                </a>
+
+                <!-- Nav Links -->
+                <nav class="hidden md:flex items-center space-x-8 font-medium text-xs tracking-wider uppercase text-slate-300">
+                    <a href="#home" class="hover:text-brand-electric transition-colors py-1 border-b-2 border-transparent hover:border-brand-electric">Home</a>
+                    <a href="#shop" class="hover:text-brand-electric transition-colors py-1 border-b-2 border-transparent hover:border-brand-electric">Store Products</a>
+                    <a href="#custom" class="hover:text-brand-electric transition-colors py-1 border-b-2 border-transparent hover:border-brand-electric flex items-center gap-1.5">
+                        <span>Custom Studio</span>
+                        <span class="bg-brand-electric/20 text-brand-electric text-[9px] font-bold px-1.5 py-0.5 rounded border border-brand-electric/30">BUILD</span>
+                    </a>
+                    <a href="#care" class="hover:text-brand-electric transition-colors py-1 border-b-2 border-transparent hover:border-brand-electric">Care Guide</a>
+                    <a href="#about" class="hover:text-brand-electric transition-colors py-1 border-b-2 border-transparent hover:border-brand-electric">About Studio</a>
+                </nav>
+
+                <!-- Action Controls -->
+                <div class="flex items-center space-x-3 sm:space-x-4">
+                    <!-- AI Assistant Trigger Button -->
+                    <button onclick="toggleAiAdvisorModal()" class="flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-gradient-to-r from-brand-electric/20 to-brand-ocean/20 border border-brand-electric/40 text-brand-electric text-xs font-semibold hover:border-brand-electric transition-all shadow-sm">
+                        <i class="fa-solid fa-wand-magic-sparkles text-brand-gold animate-pulse"></i>
+                        <span class="hidden lg:inline">AI Gift Advisor</span>
+                    </button>
+
+                    <!-- Search Input -->
+                    <div class="relative hidden sm:block">
+                        <input type="text" id="searchInput" onkeyup="handleSearch()" placeholder="Search resin pieces..." 
+                            class="w-36 lg:w-48 text-xs bg-slate-900 text-slate-200 rounded-full pl-8 pr-4 py-2 border border-slate-700 focus:border-brand-electric focus:outline-none transition-all">
+                        <i class="fa-solid fa-magnifying-glass absolute left-3 top-2.5 text-slate-500 text-xs"></i>
+                    </div>
+
+                    <!-- Wishlist Button -->
+                    <button onclick="toggleWishlistModal()" class="relative p-2 text-slate-300 hover:text-rose-400 transition-colors" title="Wishlist">
+                        <i class="fa-regular fa-heart text-xl"></i>
+                        <span id="wishlistCount" class="absolute top-1 right-1 w-4 h-4 bg-rose-500 text-white rounded-full text-[10px] font-bold flex items-center justify-center hidden">0</span>
+                    </button>
+
+                    <!-- Cart Drawer Trigger -->
+                    <button onclick="toggleCartDrawer()" class="relative p-2 text-slate-300 hover:text-brand-electric transition-colors" title="Shopping Cart">
+                        <i class="fa-solid fa-bag-shopping text-xl"></i>
+                        <span id="cartBadge" class="absolute -top-1 -right-1 w-5 h-5 bg-brand-electric text-black font-bold rounded-full text-[11px] flex items-center justify-center shadow-md">0</span>
+                    </button>
+
+                    <!-- Mobile Menu Button -->
+                    <button onclick="toggleMobileMenu()" class="md:hidden p-2 text-slate-300 hover:text-white focus:outline-none">
+                        <i class="fa-solid fa-bars text-xl" id="menuIcon"></i>
+                    </button>
+                </div>
+
+            </div>
+        </div>
+
+        <!-- Mobile Menu Drawer -->
+        <div id="mobileMenu" class="hidden md:hidden bg-brand-dark/95 border-b border-slate-800 px-4 pt-3 pb-6 space-y-3 text-sm">
+            <input type="text" onkeyup="handleSearch()" placeholder="Search store..." class="w-full text-xs bg-slate-900 text-white rounded-lg px-3 py-2 border border-slate-700">
+            <a href="#home" onclick="toggleMobileMenu()" class="block text-slate-300 hover:text-brand-electric font-medium">Home</a>
+            <a href="#shop" onclick="toggleMobileMenu()" class="block text-slate-300 hover:text-brand-electric font-medium">Shop Products</a>
+            <a href="#custom" onclick="toggleMobileMenu()" class="block text-slate-300 hover:text-brand-electric font-medium flex items-center justify-between">
+                <span>Custom Commission Studio</span>
+                <span class="bg-brand-electric text-black font-bold text-[10px] px-2 py-0.5 rounded">NEW</span>
+            </a>
+            <a href="#care" onclick="toggleMobileMenu()" class="block text-slate-300 hover:text-brand-electric font-medium">Resin Care Guide</a>
+            <a href="#about" onclick="toggleMobileMenu()" class="block text-slate-300 hover:text-brand-electric font-medium">About Store</a>
+        </div>
+    </header>
+
+    <!-- HERO SECTION -->
+    <section id="home" class="relative overflow-hidden py-16 sm:py-24 bg-gradient-to-b from-brand-dark via-slate-950 to-brand-dark">
+        <!-- Background Ambient Glows -->
+        <div class="absolute top-1/4 -left-20 w-96 h-96 bg-brand-electric/15 rounded-full blur-3xl pointer-events-none"></div>
+        <div class="absolute bottom-10 right-0 w-96 h-96 bg-brand-ocean/15 rounded-full blur-3xl pointer-events-none"></div>
+
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+                
+                <!-- Left Text Content -->
+                <div class="lg:col-span-7 space-y-6 text-center lg:text-left">
+                    <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-slate-900/80 border border-brand-electric/30 text-xs font-semibold text-brand-electric shadow-lg shadow-brand-electric/10">
+                        <i class="fa-solid fa-sparkles text-brand-gold"></i>
+                        <span>Handcrafted Precision Epoxy & Crystal Resin</span>
+                    </div>
+
+                    <h1 class="font-display text-4xl sm:text-5xl lg:text-6xl font-bold tracking-tight text-white leading-tight">
+                        Premium Handcrafted <br class="hidden sm:inline">
+                        <span class="text-gradient-electric">Resin Accessories</span>
+                    </h1>
+
+                    <p class="text-slate-400 text-sm sm:text-base max-w-2xl mx-auto lg:mx-0 leading-relaxed">
+                        Precision-poured epoxy trays, ocean wave coasters, crystal monogram keychains, and luxury river wood art. Tailored for your home, office, and style.
+                    </p>
+
+                    <div class="flex flex-col sm:flex-row items-center justify-center lg:justify-start gap-4 pt-2">
+                        <a href="#shop" class="w-full sm:w-auto px-8 py-3.5 bg-gradient-to-r from-brand-electric to-brand-ocean text-black font-bold rounded-full shadow-lg electric-glow hover:opacity-95 transition-all text-center resin-gloss text-sm">
+                            Explore Store <i class="fa-solid fa-arrow-right ml-2 text-xs"></i>
+                        </a>
+                        <a href="#custom" class="w-full sm:w-auto px-8 py-3.5 bg-slate-900 text-white font-medium rounded-full border border-slate-700 hover:border-brand-electric transition-all text-center flex items-center justify-center gap-2 text-sm">
+                            <i class="fa-solid fa-wand-magic-sparkles text-brand-electric"></i>
+                            <span>Custom Piece Builder</span>
+                        </a>
+                    </div>
+
+                    <!-- Trust Indicators -->
+                    <div class="pt-8 border-t border-slate-800/80 grid grid-cols-3 gap-4 max-w-lg mx-auto lg:mx-0">
+                        <div>
+                            <p class="text-xl sm:text-2xl font-bold text-white font-display">4.9★</p>
+                            <p class="text-xs text-slate-400">1,500+ Happy Clients</p>
+                        </div>
+                        <div>
+                            <p class="text-xl sm:text-2xl font-bold text-white font-display">100%</p>
+                            <p class="text-xs text-slate-400">Food-Safe Non-Toxic</p>
+                        </div>
+                        <div>
+                            <p class="text-xl sm:text-2xl font-bold text-white font-display">UV Guard</p>
+                            <p class="text-xs text-slate-400">Anti-Yellowing Formula</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Right Brand Logo Display & Hero Showcase -->
+                <div class="lg:col-span-5 relative flex flex-col items-center">
+                    <div class="relative w-full max-w-md">
+                        
+                        <!-- Main Logo Banner Card -->
+                        <div class="glass-panel rounded-3xl p-8 border border-brand-electric/30 text-center relative overflow-hidden electric-glow">
+                            <div class="py-8 space-y-3">
+                                <div class="inline-block p-4 rounded-2xl bg-gradient-to-b from-slate-900 to-brand-dark border border-slate-700/80 shadow-2xl">
+                                    <span class="font-display text-4xl sm:text-5xl font-black tracking-tight text-white">
+                                        MR.<span class="text-brand-electric">ACCESSORIES</span>
+                                    </span>
+                                </div>
+                                <div class="text-xs font-semibold uppercase tracking-[0.3em] text-brand-electric pt-2">
+                                    Resin Epoxy Store
+                                </div>
+                                <p class="text-slate-400 text-xs tracking-wider uppercase font-medium">Precision-Poured Artisanal Resin</p>
+                            </div>
+                            
+                            <div class="mt-6 pt-4 border-t border-slate-800 flex items-center justify-between text-xs text-slate-300">
+                                <span class="flex items-center gap-1.5 text-brand-electric font-semibold">
+                                    <i class="fa-solid fa-droplet"></i> High-Gloss Finish
+                                </span>
+                                <span class="flex items-center gap-1.5 text-brand-gold font-semibold">
+                                    <i class="fa-solid fa-crown"></i> Artisanal Quality
+                                </span>
+                            </div>
+                        </div>
+
+                        <!-- Floating Feature Pill 1 -->
+                        <div class="absolute -bottom-5 -left-5 glass-panel px-4 py-3 rounded-2xl shadow-xl flex items-center gap-3 border border-slate-700 hidden sm:flex">
+                            <div class="w-8 h-8 rounded-full bg-brand-electric/20 flex items-center justify-center text-brand-electric text-xs">
+                                <i class="fa-solid fa-shield-halved"></i>
+                            </div>
+                            <div class="text-xs">
+                                <p class="font-bold text-white">Heat Resistant</p>
+                                <p class="text-[10px] text-slate-400">Up to 200°F (93°C)</p>
+                            </div>
+                        </div>
+
+                        <!-- Floating Feature Pill 2 -->
+                        <div class="absolute -top-5 -right-5 glass-panel px-4 py-2.5 rounded-2xl shadow-xl flex items-center gap-2 border border-slate-700 hidden sm:flex">
+                            <span class="w-2.5 h-2.5 rounded-full bg-emerald-400 animate-pulse"></span>
+                            <span class="text-xs font-semibold text-white">Custom Orders Open</span>
+                        </div>
+
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- STORE PRODUCTS CATALOG SECTION -->
+    <section id="shop" class="py-20 bg-slate-950/60 relative border-t border-b border-slate-800/80">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex flex-col md:flex-row md:items-end justify-between mb-10 gap-6">
+                <div>
+                    <span class="text-xs font-bold uppercase tracking-widest text-brand-electric">Handcrafted Catalog</span>
+                    <h2 class="font-display text-3xl sm:text-4xl font-bold text-white mt-1">Store Products</h2>
+                    <p class="text-xs sm:text-sm text-slate-400 mt-2">Explore our collection of ready-to-ship resin accessories and decor.</p>
+                </div>
+
+                <!-- Category Filters -->
+                <div class="flex flex-wrap gap-2 text-xs">
+                    <button onclick="filterCategory('All')" class="cat-btn active px-4 py-2 rounded-full border border-brand-electric bg-brand-electric text-black font-bold transition-all">All Products</button>
+                    <button onclick="filterCategory('Coasters')" class="cat-btn px-4 py-2 rounded-full border border-slate-800 bg-slate-900 text-slate-300 hover:border-brand-electric/50 transition-all">Coasters</button>
+                    <button onclick="filterCategory('Keychains')" class="cat-btn px-4 py-2 rounded-full border border-slate-800 bg-slate-900 text-slate-300 hover:border-brand-electric/50 transition-all">Keychains</button>
+                    <button onclick="filterCategory('Jewelry')" class="cat-btn px-4 py-2 rounded-full border border-slate-800 bg-slate-900 text-slate-300 hover:border-brand-electric/50 transition-all">Jewelry</button>
+                    <button onclick="filterCategory('Trays')" class="cat-btn px-4 py-2 rounded-full border border-slate-800 bg-slate-900 text-slate-300 hover:border-brand-electric/50 transition-all">Trays</button>
+                </div>
+            </div>
+
+            <!-- Products Grid Container -->
+            <div id="productsGrid" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+                <!-- Dynamically Populated by JavaScript -->
+            </div>
+        </div>
+    </section>
+
+    <!-- INTERACTIVE CUSTOM RESIN COMMISSION BUILDER -->
+    <section id="custom" class="py-20 bg-brand-dark relative overflow-hidden">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+            <div class="text-center max-w-3xl mx-auto mb-12">
+                <span class="px-3 py-1 bg-brand-electric/20 text-brand-electric rounded-full text-xs font-semibold uppercase tracking-wider border border-brand-electric/30">Interactive Commission Studio</span>
+                <h2 class="font-display text-3xl sm:text-4xl font-bold text-white mt-3">Design Your Bespoke Resin Piece</h2>
+                <p class="text-slate-400 text-xs sm:text-sm mt-2">Choose your piece shape, pigment pour style, inclusions, and custom initial overlay in real-time.</p>
+            </div>
+
+            <!-- GEMINI AI DESIGN PROMPT GENERATOR BAR -->
+            <div class="mb-8 max-w-4xl mx-auto glass-panel p-4 sm:p-5 rounded-2xl border border-brand-electric/40 bg-gradient-to-r from-slate-900/90 via-slate-900/80 to-slate-900/90 shadow-xl">
+                <div class="flex items-center gap-2 mb-2 text-brand-electric text-xs font-bold uppercase tracking-wider">
+                    <i class="fa-solid fa-sparkles text-brand-gold"></i>
+                    <span>Gemini AI Auto-Designer</span>
+                </div>
+                <div class="flex flex-col sm:flex-row gap-3">
+                    <input type="text" id="aiDesignPrompt" placeholder="Describe your dream piece... e.g., 'Deep ocean wave coaster with gold flakes for letter M'" 
+                        class="flex-grow bg-slate-950/90 text-slate-100 rounded-xl px-4 py-2.5 text-xs border border-slate-700 focus:border-brand-electric focus:outline-none placeholder-slate-500">
+                    <button onclick="generateAiDesign()" id="aiDesignBtn" class="px-5 py-2.5 bg-gradient-to-r from-brand-electric to-brand-ocean text-black font-bold text-xs rounded-xl hover:opacity-90 transition-all flex items-center justify-center gap-2 whitespace-nowrap shadow-md">
+                        <i class="fa-solid fa-wand-magic-sparkles"></i>
+                        <span>Auto-Design with AI</span>
+                    </button>
+                </div>
+                <div id="aiDesignStatus" class="hidden text-[11px] text-slate-400 mt-2 flex items-center gap-1.5">
+                    <i class="fa-solid fa-circle-notch fa-spin text-brand-electric"></i>
+                    <span>Consulting Gemini AI designer...</span>
+                </div>
+            </div>
+
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
+                
+                <!-- Builder Controls (7 Cols) -->
+                <div class="lg:col-span-7 bg-slate-900/80 rounded-3xl p-6 sm:p-8 border border-slate-800 shadow-2xl space-y-6">
+                    
+                    <!-- Step 1 -->
+                    <div>
+                        <label class="block text-xs font-bold uppercase tracking-wider text-brand-electric mb-3">
+                            Step 1: Choose Item Type
+                        </label>
+                        <div class="grid grid-cols-2 sm:grid-cols-3 gap-3" id="itemTypeGroup">
+                            <button onclick="setCustomOption('item', 'Coaster Set (4)', 650)" class="custom-opt-btn active p-3 rounded-xl border border-brand-electric bg-brand-electric/20 text-left transition-all">
+                                <i class="fa-solid fa-glass-water text-brand-electric mb-1"></i>
+                                <div class="text-xs font-semibold text-white">Hexagon Coaster Set</div>
+                                <div class="text-[11px] text-slate-400">650 EGP</div>
+                            </button>
+                            <button onclick="setCustomOption('item', 'Monogram Keychain', 200)" class="custom-opt-btn p-3 rounded-xl border border-slate-800 bg-slate-950/60 text-left transition-all hover:border-slate-600">
+                                <i class="fa-solid fa-key text-brand-electric mb-1"></i>
+                                <div class="text-xs font-semibold text-white">Letter Keychain</div>
+                                <div class="text-[11px] text-slate-400">200 EGP</div>
+                            </button>
+                            <button onclick="setCustomOption('item', 'Vanity Tray', 1250)" class="custom-opt-btn p-3 rounded-xl border border-slate-800 bg-slate-950/60 text-left transition-all hover:border-slate-600">
+                                <i class="fa-solid fa-box text-brand-electric mb-1"></i>
+                                <div class="text-xs font-semibold text-white">Serving Tray</div>
+                                <div class="text-[11px] text-slate-400">1,250 EGP</div>
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- Step 2 -->
+                    <div>
+                        <label class="block text-xs font-bold uppercase tracking-wider text-brand-electric mb-3">
+                            Step 2: Choose Pour Effect
+                        </label>
+                        <div class="grid grid-cols-2 sm:grid-cols-3 gap-3">
+                            <button onclick="setStyleOption('electric')" class="style-opt-btn active p-2.5 rounded-xl border border-brand-electric bg-slate-800 text-xs text-white flex items-center gap-2">
+                                <span class="w-3 h-3 rounded-full bg-cyan-400"></span> Electric Resin
+                            </button>
+                            <button onclick="setStyleOption('gold-luxury')" class="style-opt-btn p-2.5 rounded-xl border border-slate-800 bg-slate-950 text-xs text-white flex items-center gap-2">
+                                <span class="w-3 h-3 rounded-full bg-amber-400"></span> Gold Leaf Lux
+                            </button>
+                            <button onclick="setStyleOption('galaxy')" class="style-opt-btn p-2.5 rounded-xl border border-slate-800 bg-slate-950 text-xs text-white flex items-center gap-2">
+                                <span class="w-3 h-3 rounded-full bg-purple-500"></span> Cosmic Galaxy
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- Step 3 -->
+                    <div>
+                        <label class="block text-xs font-bold uppercase tracking-wider text-brand-electric mb-3">
+                            Step 3: Add Sparkle & Inclusions (+80 EGP)
+                        </label>
+                        <div class="flex flex-wrap gap-2">
+                            <label class="cursor-pointer bg-slate-800 hover:bg-slate-700 px-3.5 py-2 rounded-xl text-xs flex items-center gap-2 border border-slate-700">
+                                <input type="checkbox" onchange="toggleInclusion('24K Gold Flakes', 80)" class="rounded text-brand-electric focus:ring-0">
+                                <span class="text-slate-200">✨ 24K Gold Foil</span>
+                            </label>
+                            <label class="cursor-pointer bg-slate-800 hover:bg-slate-700 px-3.5 py-2 rounded-xl text-xs flex items-center gap-2 border border-slate-700">
+                                <input type="checkbox" onchange="toggleInclusion('Silver Foil', 80)" class="rounded text-brand-electric focus:ring-0">
+                                <span class="text-slate-200">🪙 Silver Flakes</span>
+                            </label>
+                            <label class="cursor-pointer bg-slate-800 hover:bg-slate-700 px-3.5 py-2 rounded-xl text-xs flex items-center gap-2 border border-slate-700">
+                                <input type="checkbox" onchange="toggleInclusion('Botanical Petals', 80)" class="rounded text-brand-electric focus:ring-0">
+                                <span class="text-slate-200">🌸 Pressed Flora</span>
+                            </label>
+                        </div>
+                    </div>
+
+                    <!-- Step 4 -->
+                    <div>
+                        <label class="block text-xs font-bold uppercase tracking-wider text-brand-electric mb-2">
+                            Step 4: Monogram Text Engraving (Free)
+                        </label>
+                        <input type="text" id="customText" oninput="updatePreviewText()" placeholder="e.g. 'MR', 'A', '1998'" maxlength="10" 
+                            class="w-full bg-slate-950 text-white rounded-xl px-4 py-2.5 border border-slate-800 text-xs focus:border-brand-electric focus:outline-none">
+                    </div>
+
+                </div>
+
+                <!-- Visualizer Display (5 Cols) -->
+                <div class="lg:col-span-5 bg-slate-900/90 rounded-3xl p-6 sm:p-8 border border-slate-800 shadow-2xl flex flex-col items-center justify-between min-h-[460px]">
+                    <div class="w-full flex justify-between items-center text-xs text-slate-400 mb-4">
+                        <span class="uppercase tracking-widest font-semibold text-brand-electric"><i class="fa-solid fa-eye mr-1"></i> Live Render</span>
+                        <span class="bg-slate-800 px-2.5 py-1 rounded-full text-slate-300" id="previewCategoryLabel">Coaster Set</span>
+                    </div>
+
+                    <!-- Render Canvas Box -->
+                    <div class="relative my-6 flex items-center justify-center">
+                        <div id="previewShape" class="preview-box effect-electric w-52 h-52 sm:w-60 sm:h-60 rounded-3xl shadow-2xl flex items-center justify-center relative overflow-hidden transition-all duration-500 border-2 border-white/20">
+                            <span id="previewMonogram" class="font-display font-bold text-3xl sm:text-4xl text-white tracking-widest drop-shadow-[0_5px_5px_rgba(0,0,0,0.8)]">
+                                MR
+                            </span>
+                        </div>
+                    </div>
+
+                    <!-- Price & Add To Cart -->
+                    <div class="w-full bg-slate-950 rounded-2xl p-4 border border-slate-800 space-y-3">
+                        <div class="flex justify-between items-center text-xs">
+                            <span class="text-slate-400">Selected Item:</span>
+                            <span class="font-semibold text-white" id="summaryItemName">Coaster Set (4)</span>
+                        </div>
+                        <div class="flex justify-between items-center text-xs">
+                            <span class="text-slate-400">Pour Style:</span>
+                            <span class="font-semibold text-brand-electric" id="summaryStyleName">Electric Resin</span>
+                        </div>
+                        <div class="pt-2 border-t border-slate-800 flex justify-between items-center">
+                            <span class="text-xs font-bold text-slate-300">Total Price:</span>
+                            <span class="text-xl font-bold font-display text-brand-electric" id="customTotalPrice">650 EGP</span>
+                        </div>
+                        <button onclick="addCustomToCart()" class="w-full py-3 bg-gradient-to-r from-brand-electric to-brand-ocean hover:opacity-90 text-black font-bold rounded-xl text-xs uppercase tracking-wider transition-all shadow-md resin-gloss mt-2">
+                        <i class="fa-solid fa-cart-plus mr-1"></i> Add Commission To Cart
+                    </button>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- RESIN CARE GUIDE SECTION -->
+    <section id="care" class="py-16 bg-brand-dark border-t border-slate-800/80">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center max-w-2xl mx-auto mb-12">
+                <h2 class="text-xs font-bold uppercase tracking-widest text-brand-electric mb-2">Long-Lasting Gloss</h2>
+                <p class="font-display text-3xl font-bold text-white">Epoxy Resin Care Guide</p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                <div class="glass-panel p-6 rounded-2xl border border-slate-800 text-center space-y-3">
+                    <div class="w-12 h-12 bg-brand-electric/10 rounded-full flex items-center justify-center text-brand-electric text-xl mx-auto">
+                        <i class="fa-solid fa-sun"></i>
+                    </div>
+                    <h3 class="text-base font-bold text-white">Keep Away From Prolonged Direct Sun</h3>
+                    <p class="text-xs text-slate-400 leading-relaxed">Although our resin features premium UV blockers, storing items away from direct sunlight preserves pristine transparency.</p>
+                </div>
+
+                <div class="glass-panel p-6 rounded-2xl border border-slate-800 text-center space-y-3">
+                    <div class="w-12 h-12 bg-brand-electric/10 rounded-full flex items-center justify-center text-brand-electric text-xl mx-auto">
+                        <i class="fa-solid fa-soap"></i>
+                    </div>
+                    <h3 class="text-base font-bold text-white">Hand Wash with Mild Soap</h3>
+                    <p class="text-xs text-slate-400 leading-relaxed">Clean with warm water, mild dish soap, and a soft microfiber towel. Do not place in dishwasher or use harsh scrubbing pads.</p>
+                </div>
+
+                <div class="glass-panel p-6 rounded-2xl border border-slate-800 text-center space-y-3">
+                    <div class="w-12 h-12 bg-brand-electric/10 rounded-full flex items-center justify-center text-brand-electric text-xl mx-auto">
+                        <i class="fa-solid fa-temperature-arrow-up"></i>
+                    </div>
+                    <h3 class="text-base font-bold text-white">Avoid Extreme Heat Exposure</h3>
+                    <p class="text-xs text-slate-400 leading-relaxed">Our epoxy is heat resistant up to 200°F (93°C). Do not place boiling pots directly onto coasters or trays without a trivet.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer class="bg-slate-950 border-t border-slate-800 py-12 mt-auto">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-8 mb-8">
+                
+                <div class="space-y-4">
+                    <div class="flex items-center gap-3">
+                        <div class="w-8 h-8 rounded-lg bg-slate-900 border border-brand-electric/40 flex items-center justify-center font-display font-bold text-xs text-white">
+                            M<span class="text-brand-electric">R</span>
+                        </div>
+                        <span class="font-display font-bold text-lg text-white">MR.<span class="text-brand-electric">ACCESSORIES</span></span>
+                    </div>
+                    <p class="text-xs text-slate-400 leading-relaxed">Handcrafted high-gloss resin epoxy decor, luxury accessories, and bespoke custom commissions.</p>
+                </div>
+
+                <div>
+                    <h4 class="text-xs font-bold uppercase tracking-wider text-white mb-3">Quick Navigation</h4>
+                    <ul class="space-y-2 text-xs text-slate-400">
+                        <li><a href="#shop" class="hover:text-brand-electric transition-colors">Store Catalog</a></li>
+                        <li><a href="#custom" class="hover:text-brand-electric transition-colors">Custom Piece Studio</a></li>
+                        <li><a href="#care" class="hover:text-brand-electric transition-colors">Epoxy Maintenance</a></li>
+                    </ul>
+                </div>
+
+                <div>
+                    <h4 class="text-xs font-bold uppercase tracking-wider text-white mb-3">Customer Support</h4>
+                    <ul class="space-y-2 text-xs text-slate-400">
+                        <li><a href="#" onclick="showNotification('Shipping policy loaded')" class="hover:text-brand-electric transition-colors">Shipping & Returns</a></li>
+                        <li><a href="#" onclick="showNotification('Commission timeline: 5-7 days')" class="hover:text-brand-electric transition-colors">Custom Timeline</a></li>
+                        <li><a href="#" onclick="showNotification('FAQ opened')" class="hover:text-brand-electric transition-colors">Frequently Asked Questions</a></li>
+                    </ul>
+                </div>
+
+                <div>
+                    <h4 class="text-xs font-bold uppercase tracking-wider text-white mb-3">Join Resin Club</h4>
+                    <p class="text-xs text-slate-400 mb-3">Get VIP drop alerts and 10% off custom orders.</p>
+                    <div class="flex gap-2">
+                        <input type="email" placeholder="Your email..." class="bg-slate-900 border border-slate-800 text-xs text-white px-3 py-2 rounded-lg w-full focus:outline-none focus:border-brand-electric">
+                        <button onclick="showNotification('Subscribed to VIP Resin Club!')" class="bg-brand-electric text-black font-bold px-3 py-2 rounded-lg text-xs hover:bg-brand-ocean transition-colors">Join</button>
+                    </div>
+                </div>
+
+            </div>
+
+            <div class="pt-8 border-t border-slate-900 flex flex-col sm:flex-row justify-between items-center text-xs text-slate-500 gap-4">
+                <p>© 2026 mr.accessories - All Rights Reserved. Handcrafted Epoxy Store.</p>
+                <div class="flex space-x-4 text-base text-slate-400">
+                    <a href="#" class="hover:text-brand-electric"><i class="fa-brands fa-instagram"></i></a>
+                    <a href="#" class="hover:text-brand-electric"><i class="fa-brands fa-tiktok"></i></a>
+                    <a href="#" class="hover:text-brand-electric"><i class="fa-brands fa-pinterest"></i></a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- SHOPPING CART SLIDING DRAWER -->
+    <div id="cartDrawer" class="fixed inset-0 z-50 pointer-events-none transition-opacity duration-300 opacity-0">
+        <div onclick="toggleCartDrawer()" class="absolute inset-0 bg-black/70 backdrop-blur-sm"></div>
+        <div class="absolute inset-y-0 right-0 w-full max-w-md bg-slate-900 border-l border-slate-800 p-6 flex flex-col justify-between transform translate-x-full transition-transform duration-300 pointer-events-auto" id="cartContent">
+            <div>
+                <div class="flex justify-between items-center pb-4 border-b border-slate-800">
+                    <h3 class="font-display text-lg font-bold text-white flex items-center gap-2">
+                        <i class="fa-solid fa-bag-shopping text-brand-electric"></i> Your Shopping Bag
+                    </h3>
+                    <button onclick="toggleCartDrawer()" class="text-slate-400 hover:text-white"><i class="fa-solid fa-xmark text-xl"></i></button>
+                </div>
+                <div id="cartItemsList" class="py-4 space-y-4 max-h-[60vh] overflow-y-auto">
+                    <!-- Dynamic Cart Items -->
+                </div>
+            </div>
+
+            <div class="pt-4 border-t border-slate-800 space-y-3">
+                <div class="flex justify-between text-sm text-slate-300">
+                    <span>Subtotal:</span>
+                    <span class="font-bold text-white" id="cartSubtotal">0 EGP</span>
+                </div>
+                <div class="flex justify-between text-xs text-slate-400">
+                    <span>Estimated Shipping:</span>
+                    <span class="text-brand-electric font-semibold">FREE</span>
+                </div>
+                <button onclick="processCheckout()" class="w-full py-3.5 bg-gradient-to-r from-brand-electric to-brand-ocean text-black font-bold rounded-xl text-xs uppercase tracking-wider shadow-lg resin-gloss">
+                    Proceed to Secure Checkout
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- QUICK VIEW MODAL -->
+    <div id="quickViewModal" class="fixed inset-0 z-50 flex items-center justify-center p-4 opacity-0 pointer-events-none transition-all duration-300">
+        <div onclick="closeQuickView()" class="absolute inset-0 bg-black/80 backdrop-blur-md"></div>
+        <div class="glass-panel bg-slate-900 rounded-3xl max-w-2xl w-full border border-slate-800 p-6 relative z-10 grid grid-cols-1 sm:grid-cols-2 gap-6 shadow-2xl">
+            <button onclick="closeQuickView()" class="absolute top-4 right-4 text-slate-400 hover:text-white"><i class="fa-solid fa-xmark text-xl"></i></button>
+            
+            <img id="modalImage" src="" alt="Product" class="w-full h-64 sm:h-full object-cover rounded-2xl border border-slate-800">
+            
+            <div class="flex flex-col justify-between space-y-4">
+                <div>
+                    <span id="modalCategory" class="text-[10px] font-bold text-brand-electric uppercase tracking-wider">Category</span>
+                    <h3 id="modalTitle" class="text-xl font-bold text-white mt-1">Product Title</h3>
+                    <p id="modalPrice" class="text-lg font-bold text-brand-gold mt-2">$0.00</p>
+                    <p id="modalDesc" class="text-xs text-slate-300 mt-3 leading-relaxed">Detailed resin craft description.</p>
+                </div>
+
+                <div class="space-y-2">
+                    <button id="modalAddBtn" class="w-full py-3 bg-brand-electric text-black font-bold rounded-xl text-xs uppercase tracking-wider hover:bg-brand-ocean transition-colors">
+                        Add To Bag
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- TOAST NOTIFICATION BOX -->
+    <div id="toast" class="fixed bottom-6 right-6 z-50 bg-slate-900 border border-brand-electric/50 text-white px-5 py-3 rounded-2xl shadow-2xl flex items-center gap-3 transform translate-y-20 opacity-0 transition-all duration-300 pointer-events-none">
+        <i class="fa-solid fa-circle-check text-brand-electric text-lg"></i>
+        <span id="toastMsg" class="text-xs font-medium">Item added to cart!</span>
+    </div>
+
+    <!-- AI GIFT & STYLE ADVISOR MODAL -->
+    <div id="aiAdvisorModal" class="fixed inset-0 z-50 flex items-center justify-center p-4 opacity-0 pointer-events-none transition-all duration-300">
+        <div onclick="toggleAiAdvisorModal()" class="absolute inset-0 bg-black/80 backdrop-blur-md"></div>
+        <div class="glass-panel bg-slate-900 rounded-3xl max-w-lg w-full border border-brand-electric/40 p-6 relative z-10 shadow-2xl flex flex-col h-[520px]">
+            <!-- Header -->
+            <div class="flex items-center justify-between pb-4 border-b border-slate-800">
+                <div class="flex items-center gap-2.5">
+                    <div class="w-8 h-8 rounded-xl bg-brand-electric/20 border border-brand-electric/40 flex items-center justify-center text-brand-electric text-sm">
+                        <i class="fa-solid fa-robot"></i>
+                    </div>
+                    <div>
+                        <h3 class="font-display font-bold text-white text-sm">mr.accessories AI Advisor</h3>
+                        <p class="text-[10px] text-slate-400">Powered by Gemini AI</p>
+                    </div>
+                </div>
+                <button onclick="toggleAiAdvisorModal()" class="text-slate-400 hover:text-white"><i class="fa-solid fa-xmark text-lg"></i></button>
+            </div>
+
+            <!-- Chat Messages Container -->
+            <div id="aiChatBox" class="flex-grow py-4 space-y-3 overflow-y-auto text-xs pr-1">
+                <div class="bg-slate-800/80 p-3 rounded-2xl border border-slate-700/60 text-slate-300 max-w-[85%] leading-relaxed">
+                    👋 Hi there! I'm your AI Resin Concierge. Tell me who you're shopping for, your budget, or preferred colors/style, and I'll recommend the perfect piece!
+                </div>
+            </div>
+
+            <!-- Input Bar -->
+            <div class="pt-3 border-t border-slate-800 flex items-center gap-2">
+                <input type="text" id="aiChatInput" onkeypress="if(event.key==='Enter') sendAiChatMessage()" placeholder="Ask AI e.g. 'Gift idea for luxury office desktop under 1000 EGP'..." 
+                    class="flex-grow bg-slate-950 text-slate-100 rounded-xl px-4 py-2.5 text-xs border border-slate-800 focus:border-brand-electric focus:outline-none">
+                <button onclick="sendAiChatMessage()" id="aiSendBtn" class="p-2.5 bg-brand-electric text-black rounded-xl hover:bg-brand-ocean transition-colors text-xs font-bold">
+                    <i class="fa-solid fa-paper-plane"></i>
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- JAVASCRIPT LOGIC & STORE DATA -->
+    <script>
+        // Store Catalog Data (Prices in EGP with high quality matching resin images)
+        const products = [
+            { id: 1, name: "Electric Blue River Coaster Set", category: "Coasters", price: 650, img: "https://images.unsplash.com/photo-1579783900882-c0d3dad7b119?auto=format&fit=crop&w=600&q=80", desc: "4-pack hexagonal deep ocean resin coasters with metallic gold leaf highlights." },
+            { id: 2, name: "Monogram Initial Keyring 'M'", category: "Keychains", price: 220, img: "https://images.unsplash.com/photo-1588850561407-ed78c282e89b?auto=format&fit=crop&w=600&q=80", desc: "Personalized letter resin keychain infused with silver glitter flakes." },
+            { id: 3, name: "Pressed Wildflower Epoxy Pendant", category: "Jewelry", price: 450, img: "https://images.unsplash.com/photo-1611591475285-a36adaf961e0?auto=format&fit=crop&w=600&q=80", desc: "Hand-picked real dried flora encapsulated in crystal clear epoxy resin." },
+            { id: 4, name: "Luxury Resin & Walnut Vanity Tray", category: "Trays", price: 1450, img: "https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?auto=format&fit=crop&w=600&q=80", desc: "Walnut wood live edge paired with electric blue liquid epoxy pouring." },
+            { id: 5, name: "Cosmic Galaxy Resin Coasters", category: "Coasters", price: 720, img: "https://images.unsplash.com/photo-1541701494587-cb58502866ab?auto=format&fit=crop&w=600&q=80", desc: "Swirling purple and cyan pigment dyes creating deep space visual depth." },
+            { id: 6, name: "Custom Initial Keyring 'R'", category: "Keychains", price: 220, img: "https://images.unsplash.com/photo-1605100804763-247f67b3557e?auto=format&fit=crop&w=600&q=80", desc: "High-clarity UV resin monogram with 24k gold leaf foil suspension." }
+        ];
+
+        // App State
+        let cart = [];
+        let wishlist = [];
+        let customState = {
+            item: 'Coaster Set (4)',
+            basePrice: 650,
+            style: 'electric',
+            inclusions: [],
+            text: 'MR'
+        };
+
+        // Initialize Store
+        window.onload = function() {
+            renderProducts(products);
+            updateCustomSummary();
+        };
+
+        // Filter Products by Category
+        function filterCategory(cat) {
+            document.querySelectorAll('.cat-btn').forEach(btn => {
+                if (btn.innerText.includes(cat) || (cat === 'All' && btn.innerText === 'All Products')) {
+                    btn.className = "cat-btn active px-4 py-2 rounded-full border border-brand-electric bg-brand-electric text-black font-bold transition-all";
+                } else {
+                    btn.className = "cat-btn px-4 py-2 rounded-full border border-slate-800 bg-slate-900 text-slate-300 hover:border-brand-electric/50 transition-all";
+                }
+            });
+
+            if (cat === 'All') {
+                renderProducts(products);
+            } else {
+                const filtered = products.filter(p => p.category === cat);
+                renderProducts(filtered);
+            }
+        }
+
+        // Handle Header Search Input
+        function handleSearch() {
+            const query = document.getElementById('searchInput').value.toLowerCase();
+            const filtered = products.filter(p => p.name.toLowerCase().includes(query) || p.desc.toLowerCase().includes(query) || p.category.toLowerCase().includes(query));
+            renderProducts(filtered);
+        }
+
+        // Render Products Grid
+        function renderProducts(items) {
+            const grid = document.getElementById('productsGrid');
+            grid.innerHTML = items.map(product => `
+                <div class="glass-panel rounded-2xl overflow-hidden border border-slate-800/80 group hover:border-brand-electric/50 transition-all duration-300 flex flex-col justify-between">
+                    <div class="relative overflow-hidden cursor-pointer h-52 bg-slate-900" onclick="openQuickView(${product.id})">
+                        <img src="${product.img}" alt="${product.name}" onerror="this.src='https://images.unsplash.com/photo-1579783900882-c0d3dad7b119?auto=format&fit=crop&w=600&q=80'" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+                        <span class="absolute top-3 left-3 bg-slate-950/80 text-brand-electric text-[10px] font-bold px-2.5 py-1 rounded-full uppercase border border-slate-800">${product.category}</span>
+                        <button onclick="event.stopPropagation(); toggleWishlist(${product.id})" class="absolute top-3 right-3 w-8 h-8 rounded-full bg-slate-950/80 text-slate-300 hover:text-rose-400 flex items-center justify-center text-xs transition-colors">
+                            <i class="${wishlist.includes(product.id) ? 'fa-solid fa-heart text-rose-500' : 'fa-regular fa-heart'}"></i>
+                        </button>
+                    </div>
+
+                    <div class="p-4 space-y-3 flex-grow flex flex-col justify-between">
+                        <div>
+                            <h3 class="text-sm font-bold text-white group-hover:text-brand-electric transition-colors line-clamp-1">${product.name}</h3>
+                            <p class="text-[11px] text-slate-400 mt-1 line-clamp-2">${product.desc}</p>
+                        </div>
+
+                        <div class="flex items-center justify-between pt-3 border-t border-slate-800">
+                            <div>
+                                <span class="text-base font-bold text-white font-display block">${product.price.toLocaleString()}</span>
+                                <span class="text-[10px] text-brand-electric font-semibold uppercase">EGP</span>
+                            </div>
+                            <button onclick="addToCart(${product.id})" class="px-3.5 py-1.5 bg-brand-electric/10 text-brand-electric hover:bg-brand-electric hover:text-black font-semibold text-xs rounded-lg transition-all flex items-center gap-1.5">
+                                <i class="fa-solid fa-cart-plus"></i> Add
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            `).join('');
+        }
+
+        // Cart Actions
+        function addToCart(id) {
+            const prod = products.find(p => p.id === id);
+            const existing = cart.find(c => c.id === id && !c.isCustom);
+            if(existing) {
+                existing.qty++;
+            } else {
+                cart.push({ ...prod, qty: 1, isCustom: false });
+            }
+            updateCartUI();
+            showNotification(`Added "${prod.name}" to cart!`);
+        }
+
+        function updateCartUI() {
+            const count = cart.reduce((acc, item) => acc + item.qty, 0);
+            document.getElementById('cartBadge').innerText = count;
+
+            const list = document.getElementById('cartItemsList');
+            if(cart.length === 0) {
+                list.innerHTML = `<div class="text-center py-12 text-slate-500 text-xs">Your shopping bag is empty.</div>`;
+            } else {
+                list.innerHTML = cart.map((item, idx) => `
+                    <div class="flex items-center justify-between bg-slate-950 p-3 rounded-xl border border-slate-800 text-xs">
+                        <div class="flex items-center gap-3">
+                            ${item.img ? `<img src="${item.img}" class="w-12 h-12 rounded-lg object-cover border border-slate-800">` : `<div class="w-12 h-12 rounded-lg bg-slate-900 border border-brand-electric/30 flex items-center justify-center font-display font-bold text-brand-electric text-xs">MR</div>`}
+                            <div>
+                                <h4 class="font-bold text-white line-clamp-1">${item.name}</h4>
+                                <p class="text-brand-electric font-semibold mt-0.5">${item.price.toLocaleString()} EGP x ${item.qty}</p>
+                            </div>
+                        </div>
+                        <button onclick="removeFromCart(${idx})" class="text-slate-500 hover:text-rose-400 p-2"><i class="fa-solid fa-trash"></i></button>
+                    </div>
+                `).join('');
+            }
+
+            const subtotal = cart.reduce((acc, item) => acc + (item.price * item.qty), 0);
+            document.getElementById('cartSubtotal').innerText = `${subtotal.toLocaleString()} EGP`;
+        }
+
+        function removeFromCart(index) {
+            cart.splice(index, 1);
+            updateCartUI();
+        }
+
+        // Custom Commission Builder Functions
+        function setCustomOption(type, val, price) {
+            customState.item = val;
+            customState.basePrice = price;
+            document.getElementById('summaryItemName').innerText = val;
+            document.getElementById('previewCategoryLabel').innerText = val;
+            updateCustomSummary();
+        }
+
+        function updateCustomSummary() {
+            const incTotal = customState.inclusions.reduce((acc, i) => acc + i.price, 0);
+            const total = customState.basePrice + incTotal;
+            document.getElementById('customTotalPrice').innerText = `${total.toLocaleString()} EGP`;
+        }
+
+        function addCustomToCart() {
+            const totalText = document.getElementById('customTotalPrice').innerText;
+            const total = parseInt(totalText.replace(/[^0-9]/g, ''), 10);
+            cart.push({
+                id: Date.now(),
+                name: `Custom ${customState.item} (${customState.text})`,
+                price: total,
+                qty: 1,
+                isCustom: true,
+                img: null
+            });
+            updateCartUI();
+            toggleCartDrawer();
+            showNotification("Custom piece added to cart!");
+        }
+
+        // Quick View Modal
+        function openQuickView(id) {
+            const p = products.find(prod => prod.id === id);
+            document.getElementById('modalImage').src = p.img;
+            document.getElementById('modalTitle').innerText = p.name;
+            document.getElementById('modalCategory').innerText = p.category;
+            document.getElementById('modalPrice').innerText = `${p.price.toLocaleString()} EGP`;
+            document.getElementById('modalDesc').innerText = p.desc;
+            document.getElementById('modalAddBtn').onclick = function() {
+                addToCart(p.id);
+                closeQuickView();
+            };
+
+            const modal = document.getElementById('quickViewModal');
+            modal.classList.remove('opacity-0', 'pointer-events-none');
+        }
+
+        function closeQuickView() {
+            const modal = document.getElementById('quickViewModal');
+            modal.classList.add('opacity-0', 'pointer-events-none');
+        }
+
+        // Wishlist
+        function toggleWishlist(id) {
+            const idx = wishlist.indexOf(id);
+            if(idx > -1) wishlist.splice(idx, 1);
+            else wishlist.push(id);
+            
+            const badge = document.getElementById('wishlistCount');
+            if(wishlist.length > 0) {
+                badge.innerText = wishlist.length;
+                badge.classList.remove('hidden');
+            } else {
+                badge.classList.add('hidden');
+            }
+            renderProducts(products);
+        }
+
+        function toggleWishlistModal() {
+            showNotification(`Wishlist items: ${wishlist.length}`);
+        }
+
+        // Mobile Nav Menu Toggle
+        function toggleMobileMenu() {
+            const menu = document.getElementById('mobileMenu');
+            menu.classList.toggle('hidden');
+        }
+
+        // Simulated Checkout
+        function processCheckout() {
+            if(cart.length === 0) {
+                showNotification("Your cart is empty!");
+                return;
+            }
+            showNotification("Order received! Processing epoxy order...");
+            cart = [];
+            updateCartUI();
+            toggleCartDrawer();
+        }
+
+        // Toast Helper
+        function showNotification(msg) {
+            const toast = document.getElementById('toast');
+            document.getElementById('toastMsg').innerText = msg;
+            toast.classList.remove('translate-y-20', 'opacity-0', 'pointer-events-none');
+            setTimeout(() => {
+                toast.classList.add('translate-y-20', 'opacity-0', 'pointer-events-none');
+            }, 3000);
+        }
+
+        // ==========================================
+        // GEMINI AI INTEGRATIONS
+        // ==========================================
+
+        async function generateAiDesign() {
+            const promptInput = document.getElementById('aiDesignPrompt');
+            const statusEl = document.getElementById('aiDesignStatus');
+            const btn = document.getElementById('aiDesignBtn');
+            const prompt = promptInput.value.trim();
+
+            if (!prompt) {
+                showNotification("Please enter a description for AI auto-design!");
+                return;
+            }
+
+            statusEl.classList.remove('hidden');
+            btn.disabled = true;
+
+            const systemPrompt = `You are an expert resin artist assistant for 'mr.accessories' epoxy store. 
+Convert user natural language descriptions into JSON design configurations.
+Return ONLY valid JSON matching this schema:
+{
+  "item": "Coaster Set (4)" | "Monogram Keychain" | "Vanity Tray",
+  "style": "electric" | "gold-luxury" | "galaxy",
+  "text": "short initial or word max 5 chars",
+  "inclusions": ["24K Gold Flakes" | "Silver Foil" | "Botanical Petals"]
+}`;
+
+            const payload = {
+                contents: [{ parts: [{ text: `Design request: "${prompt}"` }] }],
+                systemInstruction: { parts: [{ text: systemPrompt }] },
+                generationConfig: { responseMimeType: "application/json" }
+            };
+
+            try {
+                const apiKey = "";
+                const apiUrl = `https://generativelanguage.googleapis.com/v1beta/models/gemini-3-flash-preview:generateContent?key=${apiKey}`;
+                
+                const response = await fetch(apiUrl, {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify(payload)
+                });
+
+                const result = await response.json();
+                const jsonText = result?.candidates?.[0]?.content?.parts?.[0]?.text;
+                
+                if (jsonText) {
+                    const config = JSON.parse(jsonText);
+
+                    // Map item price
+                    let price = 650;
+                    if (config.item === "Monogram Keychain") price = 200;
+                    if (config.item === "Vanity Tray") price = 1250;
+
+                    // Apply configured options to studio state
+                    setCustomOption('item', config.item || 'Coaster Set (4)', price);
+                    if (config.style) setStyleOption(config.style);
+                    if (config.text) {
+                        document.getElementById('customText').value = config.text;
+                        updatePreviewText();
+                    }
+
+                    showNotification("AI configured your custom resin design!");
+                } else {
+                    showNotification("Could not parse AI response. Try another description!");
+                }
+            } catch (err) {
+                console.error("Gemini AI API Error:", err);
+                showNotification("Failed to connect to Gemini AI.");
+            } finally {
+                statusEl.classList.add('hidden');
+                btn.disabled = false;
+            }
+        }
+
+        function toggleAiAdvisorModal() {
+            const modal = document.getElementById('aiAdvisorModal');
+            modal.classList.toggle('opacity-0');
+            modal.classList.toggle('pointer-events-none');
+        }
+
+        async function sendAiChatMessage() {
+            const input = document.getElementById('aiChatInput');
+            const chatBox = document.getElementById('aiChatBox');
+            const userMsg = input.value.trim();
+
+            if (!userMsg) return;
+
+            // Render User Bubble
+            chatBox.innerHTML += `
+                <div class="flex justify-end">
+                    <div class="bg-brand-electric/20 text-white p-3 rounded-2xl border border-brand-electric/30 max-w-[85%]">
+                        ${userMsg}
+                    </div>
+                </div>
+            `;
+            input.value = '';
+            chatBox.scrollTop = chatBox.scrollHeight;
+
+            // Render Thinking Indicator
+            const loadingId = 'aiLoading-' + Date.now();
+            chatBox.innerHTML += `
+                <div id="${loadingId}" class="bg-slate-800/80 p-3 rounded-2xl border border-slate-700/60 text-slate-400 max-w-[85%] flex items-center gap-2">
+                    <i class="fa-solid fa-circle-notch fa-spin text-brand-electric"></i>
+                    <span>Crafting AI recommendations...</span>
+                </div>
+            `;
+            chatBox.scrollTop = chatBox.scrollHeight;
+
+            const catalogContext = products.map(p => `- ${p.name} (${p.category}): ${p.price} EGP. ${p.desc}`).join('\n');
+            const systemPrompt = `You are a helpful, stylish customer advisor for 'mr.accessories', a high-end resin and epoxy accessories store.
+Store Catalog:
+${catalogContext}
+
+Answer customer inquiries thoughtfully, suggesting relevant catalog items or custom commission options. Keep responses under 3 concise sentences.`;
+
+            const payload = {
+                contents: [{ parts: [{ text: userMsg }] }],
+                systemInstruction: { parts: [{ text: systemPrompt }] }
+            };
+
+            try {
+                const apiKey = "";
+                const apiUrl = `https://generativelanguage.googleapis.com/v1beta/models/gemini-3-flash-preview:generateContent?key=${apiKey}`;
+                
+                const response = await fetch(apiUrl, {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify(payload)
+                });
+
+                const result = await response.json();
+                const aiText = result?.candidates?.[0]?.content?.parts?.[0]?.text || "Sorry, I couldn't process that right now. Feel free to browse our custom studio!";
+
+                document.getElementById(loadingId)?.remove();
+                
+                chatBox.innerHTML += `
+                    <div class="bg-slate-800/80 p-3 rounded-2xl border border-slate-700/60 text-slate-200 max-w-[85%] leading-relaxed">
+                        ${aiText}
+                    </div>
+                `;
+            } catch (err) {
+                console.error("Gemini Chat API Error:", err);
+                document.getElementById(loadingId)?.remove();
+                chatBox.innerHTML += `
+                    <div class="bg-rose-950/80 text-rose-300 p-3 rounded-2xl border border-rose-800/60 max-w-[85%]">
+                        Oops! Couldn't reach AI concierge.
+                    </div>
+                `;
+            }
+            chatBox.scrollTop = chatBox.scrollHeight;
+        }
+    </script>
+</body>
+</html>
